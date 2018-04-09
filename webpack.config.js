@@ -4,6 +4,7 @@ module.exports = options => {
     output: {
       filename: 'bundle.js',
     },
+    // devtool: 'cheap-module-source-map',
     module: {
       rules: [
         {
@@ -20,5 +21,6 @@ module.exports = options => {
         },
       ],
     },
+    mode:'development',
   }
 }
