@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
+import Game from './src/root'
 
 const randomColor = () => '#' + Math.random().toString(16).substr(-6)
 const styles = {
@@ -36,11 +37,11 @@ class Card extends Component {
             height: clientHeight,
         })
     }
-  
+
     componentDidMount() {
         this.measure()
     }
-    
+
     render() {
         const { width, height } = this.state
         const style = {
@@ -81,6 +82,7 @@ class App extends Component {
                         Randomize Color
                         </button>
                 </Card>
+                <Game />
             </div>
         )
     }
