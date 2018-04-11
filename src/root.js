@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import style from './root.css'
+import './root.scss'
 // const borad_items = [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11], [12, 13, 14, 15]]
 const borad_items = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
 const Winners = [
@@ -28,7 +30,7 @@ class Square extends Component {
     render() {
         const { i, callback } = this.props;
         return (
-            <button style={styles.square} onClick={() => { this.onGoSteap(i, callback) }}>
+            <button className={style.square} onClick={() => { this.onGoSteap(i, callback) }}>
                 {this.state.value}
             </button>
         );
@@ -80,11 +82,11 @@ export default class Game extends Component {
     render() {
         const { theNext, winner} = this.state
         return (
-            <div style={styles.game}>
-                <div style={styles.game_board}>
-                    <div style={styles.status}>{winner ? winner + ' win!!' : 'the next is ' + theNext}</div>
+            <div className={style.game}>
+                <div className={style.game_board}>
+                <div className="status">{winner ? winner + ' win!!' : 'the next is ' + theNext}</div>
                     {borad_items.map((item, i) => {
-                        return (<div key={i} style={styles.board_row}>
+                        return (<div key={i} className={style.board_row}>
                             {item.map((itm, k) => {
                                 return <Square key={k} i={itm} theNext={theNext} winner={winner} callback={this.doneOneStep.bind(this)} />
                             })}
@@ -98,33 +100,30 @@ export default class Game extends Component {
 
 const styles = {
     game: {
-        width: 400,
-        height: 300,
-        flexDirection: 'row',
-        alignItems: 'center',
-        juatifyContent: 'center',
+  
     },
     game_board: {
-        flex: 3 / 4,
+        width: 90,
+        height: 90,
     },
     agin: {
-        flex: 1 / 4,
-        height: 20,
+        
     },
     board_row: {
         flexDirection: 'row',
+        display:'flex',
 
     },
     status: {
 
     },
     square: {
-        flex: .3,
-        width: 40,
+        flex: 1,
         height: 30,
-        fontWeight: "500",
+        textAlign:'center',
+        fontWeight: "700",
+        fontSize:20,
         backgroundColor: '#eee',
-        display: 'inline-block',
         borderColor: '#aaa',
         borderWidth: 1,
         marginTop:-1,
