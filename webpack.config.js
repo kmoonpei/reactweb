@@ -35,17 +35,26 @@ module.exports = options => {
                 modules: true,
                 localIdentName: '[path]-[name]-[local]-[hash:base64:5]'
               },
-              
+
             }
           ],
         },
         {
           test: /\.scss$/,
-          loaders: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-              use: ['css-loader', 'sass-loader']
-          })
-      }
+          use: [
+            { loader: "style-loader" },
+            {
+              loader: "css-loader",
+              options: {
+                modules: true,
+                localIdentName: '[path]-[name]-[local]-[hash:base64:5]'
+              },
+            },
+            {
+              loader: "sass-loader",
+            }
+          ]
+        }
 
         // 也可使用以下的配置
         // {
@@ -63,9 +72,7 @@ module.exports = options => {
 
       ],
     },
-    plugins: [
-      new ExtractTextPlugin('root.css')
-    ],
+
     mode: 'development',
   }
 }

@@ -2,7 +2,7 @@
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
   } */
-  
+  @import '~antd/dist/antd.css';
   ol, ul {
     padding-left: 30px;
   }
@@ -15,7 +15,7 @@
 
 .status {
   margin-bottom: 10px;
-  color:'#ea0';
+  color:#ea0;
   font-size: 20;
 }
 
