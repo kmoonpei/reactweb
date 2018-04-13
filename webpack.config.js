@@ -32,7 +32,7 @@ module.exports = options => {
             {
               loader: "css-loader",
               options: {
-                modules: true,
+                // modules: true,
                 localIdentName: '[path]-[name]-[local]-[hash:base64:5]'
               },
 
@@ -54,7 +54,30 @@ module.exports = options => {
               loader: "sass-loader",
             }
           ]
-        }
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: "babel-loader"
+            },
+            {
+              loader: "react-svg-loader",
+              options: {
+                jsx: true // true outputs JSX tags
+              }
+            }
+          ]
+        },
+        {
+          test: /\.(png|jpg|gif)$/,
+          use: [
+              {
+                  loader: 'file-loader',
+                  options: {}
+              }
+          ]
+      }
 
         // 也可使用以下的配置
         // {

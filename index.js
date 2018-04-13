@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import Game from './src/root'
+import Game from './src/pages/root'
 
 const randomColor = () => '#' + Math.random().toString(16).substr(-6)
 const styles = {

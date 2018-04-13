@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import style from './root.css'
-import st from './root.scss'
+import style from '../assets/style/root.scss'
 import TestComponent from './antd'
 
 // const borad_items = [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11], [12, 13, 14, 15]]
@@ -86,7 +85,7 @@ export default class Game extends Component {
         return (
             <div className={style.game}>
                 <div className={style.game_board}>
-                <div className={st.status}>{winner ? winner + ' win!!' : 'the next is ' + theNext}</div>
+                <div className={style.status}>{winner ? winner + ' win!!' : 'the next is ' + theNext}</div>
                     {borad_items.map((item, i) => {
                         return (<div key={i} className={style.board_row}>
                             {item.map((itm, k) => {
